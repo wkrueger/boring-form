@@ -16,10 +16,10 @@ const formSpec = normalizeFormSpec(
 )
 
 function App() {
-  console.log({ formSpec })
+  console.log("formSpec", { formSpec })
   const [formData, setFormData] = useState({})
   return (
-    <FormRootProvider formSpec={formSpec}>
+    <FormRootProvider formSpec={formSpec} formData={formData}>
       <ShadcnGridTemplate />
     </FormRootProvider>
   )

@@ -1,9 +1,10 @@
 import { formRootContext } from "./contexts"
-import type { FormRootArgs } from "./useCreateFormRoot"
+import { useCreateFormRoot, type FormRootArgs } from "./useCreateFormRoot"
 
 export function FormRootProvider({
   children,
   ...args
 }: { children: React.ReactNode } & FormRootArgs) {
-  return <formRootContext.Provider value={args}>{children}</formRootContext.Provider>
+  const formRoot = useCreateFormRoot(args)
+  return <formRootContext.Provider value={formRoot}>{children}</formRootContext.Provider>
 }
